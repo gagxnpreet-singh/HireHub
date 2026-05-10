@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Jobs } from 'src/app/model/jobs.model';
+import { Job } from 'src/app/model/jobs.model';
 import { Student } from 'src/app/model/student.model';
 import { AuthService } from 'src/app/service/auth.service';
 import Swal from 'sweetalert2'

@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
-import { Jobs } from 'src/app/model/jobs.model';
+import { Job } from 'src/app/model/jobs.model';
 import { MatTableDataSource } from '@angular/material/table';
 import Swal from 'sweetalert2';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -44,7 +44,7 @@ export class ListJobsComponent implements OnInit {
     this.authService.getJobsPostedByAnEmployer().subscribe(res => {
       console.log(res)
       this.job_data = res;
-      this.dataSource = new MatTableDataSource<Jobs>(this.job_data)
+      this.dataSource = new MatTableDataSource<Job>(this.job_data)
       this.dataSource.paginator = this.paginator;
     })
   }

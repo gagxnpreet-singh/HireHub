@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Employer } from '../model/employer.model';
 import { Student } from '../model/student.model';
-import { Jobs } from '../model/jobs.model';
+import { Job } from '../model/jobs.model';
 
 
 @Injectable({
@@ -88,10 +88,10 @@ export class AuthService {
 
   getJobsPostedByAnEmployer(): Observable<any> {
 
-    return this.http.get<Jobs>(this.getJobsUrl + "?email=" + localStorage.getItem('employer_email'))
+    return this.http.get<Job>(this.getJobsUrl + "?email=" + localStorage.getItem('employer_email'))
   }
 
-  postJobs(job: Jobs): Observable<any> {
+  postJobs(job: Job): Observable<any> {
     return this.http.post(this.postJobUrl, job)
   }
 
@@ -100,7 +100,7 @@ export class AuthService {
   }
 
   getAllJobs(): Observable<any> {
-    return this.http.get<Jobs>(this.getAllAvailableJobsUrl + "?email=" + localStorage.getItem('student_email'))
+    return this.http.get<Job>(this.getAllAvailableJobsUrl + "?email=" + localStorage.getItem('student_email'))
   }
   applyJob(id: number) {
     console.log(localStorage.getItem('student_email'))
@@ -108,7 +108,7 @@ export class AuthService {
   }
 
   getAppliedJobs(): Observable<any> {
-    return this.http.get<Jobs>(this.getAppliedJobsUrl + "?email=" + localStorage.getItem('student_email'))
+    return this.http.get<Job>(this.getAppliedJobsUrl + "?email=" + localStorage.getItem('student_email'))
   }
 
   getStudentsAppliedForJob(id: string): Observable<any> {
@@ -119,17 +119,17 @@ export class AuthService {
     return this.http.delete(this.deleteJobEmployerUrl + "?id=" + id);
   }
 
-  editJob(job: Jobs): Observable<any> {
+  editJob(job: Job): Observable<any> {
     console.log(job);
-    return this.http.put<Jobs>(this.editJobUrlAdmin, job)
+    return this.http.put<Job>(this.editJobUrlAdmin, job)
   }
 
   getAllJobsAdmin(): Observable<any> {
-    return this.http.get<Jobs>(this.getAllJobsAdminUrl);
+    return this.http.get<Job>(this.getAllJobsAdminUrl);
   }
 
   getAllStudentsAdmin(): Observable<any> {
-    return this.http.get<Jobs>(this.getAllStudentsAdminUrl);
+    return this.http.get<Job>(this.getAllStudentsAdminUrl);
   }
 
   deleteStudentAdmin(id: string) {
@@ -142,7 +142,7 @@ export class AuthService {
   }
 
   getAllEmployerAdmin(): Observable<any> {
-    return this.http.get<Jobs>(this.getAllEmployersAdminUrl);
+    return this.http.get<Job>(this.getAllEmployersAdminUrl);
   }
 
   deleteEmployerAdmin(id: string) {
