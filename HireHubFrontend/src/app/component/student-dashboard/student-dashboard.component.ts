@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Jobs } from 'src/app/model/jobs.model';
+import { Job } from 'src/app/model/jobs.model';
 import { AuthService } from 'src/app/service/auth.service';
 import Swal from 'sweetalert2'
 @Component({
@@ -20,7 +20,7 @@ export class StudentDashboardComponent implements OnInit {
 
   listAllJobs() {
     this.authService.getAllJobs().subscribe(res => {
-      this.job_data = res.map((job: Jobs) => {
+      this.job_data = res.map((job: Job) => {
         const companyName = this.extractDomainFromEmail(job.postedBy);
         return { ...job, companyName: companyName };
       })

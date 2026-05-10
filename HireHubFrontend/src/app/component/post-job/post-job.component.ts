@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Jobs } from 'src/app/model/jobs.model';
+import { Job } from 'src/app/model/jobs.model';
 import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
@@ -20,7 +20,7 @@ export class PostJobComponent implements OnInit {
   jobTypes: string[]
   experiences:number[]
 
-  postJobs!: Jobs; 
+  postJobs!: Job; 
 
   constructor(private authService:AuthService , private route: Router) { 
     this.jobTypes = ['Internship', 'Contract', 'Full Time', 'Part Time'];
@@ -29,7 +29,7 @@ export class PostJobComponent implements OnInit {
   isExpanded: boolean = false;
 
   ngOnInit(): void {
-    this.postJobs= new Jobs();
+    this.postJobs= new Job();
     this.jobTitle = '';
     this.skills = '';
     this.roles='';

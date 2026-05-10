@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "set NODE_OPTIONS=--openssl-legacy-provider  && gulp buildDev && ng serve ",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "publish": "set NODE_OPTIONS=--openssl-legacy-provider  && gulp build && ng build --prod"
+    "start": "NODE_OPTIONS=--openssl-legacy-provider gulp buildDev && ng serve",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider ng build --configuration development",
+    "watch": "NODE_OPTIONS=--openssl-legacy-provider ng build --watch --configuration development",
+    "test": "NODE_OPTIONS=--openssl-legacy-provider ng test",
+    "publish": "NODE_OPTIONS=--openssl-legacy-provider gulp build && ng build --prod"
   },
   "private": true,
   "dependencies": {
